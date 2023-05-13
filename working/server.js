@@ -24,6 +24,12 @@ app.get('/api/quotes/', (req, res) => {
 })
 
 app.post('/api/quotes/', (req, res) => {
+    const { person, quote } = req.query
+
+    if(!person || !quote) {
+        res.status(404).send("You must provide both person and quote")
+    }
+
     res.json({quote: quotes[0]})
 })
 
