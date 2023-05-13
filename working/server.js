@@ -12,6 +12,9 @@ app.get('/api/quotes/random', (req, res) => {
     res.json({quote: getRandomElement(quotes)})
 })
 
+app.get('/api/quotes/', (req, res) => {
+    res.json({quotes: quotes})
+})
 
 app.listen(PORT, function () {
     console.log(`Listening on port ${PORT}. . .`);
