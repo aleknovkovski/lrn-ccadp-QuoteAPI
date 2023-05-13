@@ -13,7 +13,18 @@ app.get('/api/quotes/random', (req, res) => {
 })
 
 app.get('/api/quotes/', (req, res) => {
-    res.json({quotes: quotes})
+    const { person } = req.query
+    let quotesArr = quotes
+
+    if(person) {
+        quotesArr = quotes.filter(quote => quote.person === person)
+    }
+
+    res.json({quotes: quotesArr})
+})
+
+app.post('/api/quotes/', (req, res) => {
+    res.json({quote: quotes[0]})
 })
 
 app.listen(PORT, function () {
