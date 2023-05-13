@@ -9,14 +9,7 @@ const PORT = process.env.PORT || 4001;
 app.use(express.static('public'));
 
 app.get('/api/quotes/random', (req, res) => {
-    res.json(
-        {
-            quote: {
-                quote: 'We build our computer (systems) the way we build our cities: over time, without a plan, on top of ruins.',
-                person: 'Ellen Ullman'
-            }
-        }
-    )
+    res.json({quote: getRandomElement(quotes)})
 })
 
 
